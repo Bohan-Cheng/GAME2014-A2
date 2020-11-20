@@ -1,0 +1,2 @@
+Collision problem, going throuh ground or protantialy walls if go higher speed.
+No touch screen control yet.
