@@ -8,6 +8,8 @@ public class Script_PlayerController : MonoBehaviour
 	[SerializeField] private float MoveFriction = 0.5f;
 	[SerializeField] private float MaxMoveSpeed = 5.0f;
 	[SerializeField] private LayerMask GroundLayer;
+	public bool UseTouchControll = true;
+	public Joystick joystick;
 
 	public Rigidbody2D rigid;
 	public Animator anim;
@@ -22,13 +24,10 @@ public class Script_PlayerController : MonoBehaviour
 		anim = GetComponent<Animator>();
 	}
 
-    private void Update()
-    {
-        if(!IsJumping && Input.GetButtonDown("Jump"))
-        {
-			IsJumping = true;
-        }
-    }
+	public void Jump()
+	{
+		IsJumping = true;
+	}
 
     void FixedUpdate()
 	{
@@ -38,13 +37,22 @@ public class Script_PlayerController : MonoBehaviour
 
 	public void Move()
 	{
-		Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
+		Vector3 movement = Vector3.zero;
+		if (UseTouchControll)
+        {
+			if(Mathf.Abs(joystick.Horizontal) >= 0.2f)
+				movement = new Vector3(joystick.Horizontal, 0.0f, 0.0f);
+		}
+		else
+        {
+			movement = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
+        }
 		anim.SetFloat("Speed", Mathf.Abs(movement.x));
 		rigid.AddForce(movement * MoveSpeed);
 		rigid.velocity = new Vector2(rigid.velocity.x * MoveFriction, rigid.velocity.y);
 
-		if (Input.GetAxis("Horizontal") > 0 && !FacingRight) { Flip(); }
-		else if (Input.GetAxis("Horizontal") < 0 && FacingRight) { Flip(); }
+		if (movement.x > 0 && !FacingRight) { Flip(); }
+		else if (movement.x < 0 && FacingRight) { Flip(); }
 
 		if (!InAir && IsJumping)
 		{

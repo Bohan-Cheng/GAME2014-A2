@@ -17,12 +17,6 @@ public class Script_PlayerAttack : MonoBehaviour
     private bool IsSwingingUp = false;
     private bool IsSwingingDown = false;
 
-    // Update is called once per frame
-    void Update()
-    {
-        Attack();
-    }
-
     private void FixedUpdate()
     {
         if(IsSwingingUp)
@@ -37,9 +31,9 @@ public class Script_PlayerAttack : MonoBehaviour
         }
     }
 
-    void Attack()
+    public void Attack()
     {
-        if (!IsAttacking && Input.GetButtonDown("Fire1"))
+        if (!IsAttacking)
         {
             IsAttacking = true;
             Invoke("DoneSlash", 0.1f);
