@@ -9,11 +9,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 645502480135976511, guid: 9219cf0421513cf428ba04c5cb41866e, type: 3}
       propertyPath: m_Offset.y
-      value: 1.1846476
+      value: 0.7546921
       objectReference: {fileID: 0}
     - target: {fileID: 645502480135976511, guid: 9219cf0421513cf428ba04c5cb41866e, type: 3}
       propertyPath: m_Size.y
-      value: 1.5563226
+      value: 1.6054602
       objectReference: {fileID: 0}
     - target: {fileID: 2706495607203555328, guid: 9219cf0421513cf428ba04c5cb41866e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -81,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 159bf87195e9a5e4fa94cabea862a6a9, type: 2}
     - target: {fileID: 2706495607203555333, guid: 9219cf0421513cf428ba04c5cb41866e, type: 3}
       propertyPath: m_Name
-      value: Enemy_Goblin
+      value: Enemy_Goblin Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9219cf0421513cf428ba04c5cb41866e, type: 3}

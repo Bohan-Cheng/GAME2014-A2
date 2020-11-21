@@ -5,6 +5,7 @@ using UnityEngine;
 public class Script_Enemy : MonoBehaviour
 {
     public int Health = 3;
+    public float CleanTime = 10.0f;
     [SerializeField] private bool IsAlive = true;
 
     public void ApplyDamage(int Damage)
@@ -13,12 +14,20 @@ public class Script_Enemy : MonoBehaviour
         if(Health <= 0)
         {
             GetComponent<Animator>().SetBool("IsAlive", IsAlive = false);
-            Invoke("CleanBody", 10.0f);
+            Invoke("CleanBody", CleanTime);
         }
     }
 
     void CleanBody()
     {
         Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(IsAlive && collision.collider.tag == "Player")
+        {
+            collision.collider.GetComponent<Script_PlayerStats>().ApplyDamage();
+        }
     }
 }
