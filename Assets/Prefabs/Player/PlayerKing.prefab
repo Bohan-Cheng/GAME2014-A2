@@ -384,6 +384,8 @@ MonoBehaviour:
   GroundLayer:
     serializedVersion: 2
     m_Bits: 256
+  UseTouchControl: 1
+  joystick: {fileID: 0}
   rigid: {fileID: 0}
   anim: {fileID: 0}
   InAir: 1

@@ -8,7 +8,7 @@ public class Script_PlayerController : MonoBehaviour
 	[SerializeField] private float MoveFriction = 0.5f;
 	[SerializeField] private float MaxMoveSpeed = 5.0f;
 	[SerializeField] private LayerMask GroundLayer;
-	public bool UseTouchControll = true;
+	public bool UseTouchControl = true;
 	public Joystick joystick;
 
 	public Rigidbody2D rigid;
@@ -26,8 +26,20 @@ public class Script_PlayerController : MonoBehaviour
 
 	public void Jump()
 	{
-		IsJumping = true;
+		if(UseTouchControl)
+			IsJumping = true;
 	}
+
+    private void Update()
+    {
+        if(!UseTouchControl)
+        {
+			if(Input.GetButtonDown("Jump"))
+            {
+				IsJumping = true;
+            }
+        }
+    }
 
     void FixedUpdate()
 	{
@@ -38,7 +50,7 @@ public class Script_PlayerController : MonoBehaviour
 	public void Move()
 	{
 		Vector3 movement = Vector3.zero;
-		if (UseTouchControll)
+		if (UseTouchControl)
         {
 			if(Mathf.Abs(joystick.Horizontal) >= 0.2f)
 				movement = new Vector3(joystick.Horizontal, 0.0f, 0.0f);

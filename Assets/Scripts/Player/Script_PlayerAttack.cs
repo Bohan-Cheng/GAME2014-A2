@@ -17,6 +17,17 @@ public class Script_PlayerAttack : MonoBehaviour
     private bool IsSwingingUp = false;
     private bool IsSwingingDown = false;
 
+    private void Update()
+    {
+        if(!PC.UseTouchControl)
+        {
+            if(Input.GetButtonDown("Fire1"))
+            {
+                DoAttack();
+            }
+        }
+    }
+
     private void FixedUpdate()
     {
         if(IsSwingingUp)
@@ -32,6 +43,12 @@ public class Script_PlayerAttack : MonoBehaviour
     }
 
     public void Attack()
+    {
+        if(PC.UseTouchControl)
+            DoAttack();
+    }
+
+    void DoAttack()
     {
         if (!IsAttacking)
         {
