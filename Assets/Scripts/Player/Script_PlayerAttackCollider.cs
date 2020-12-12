@@ -10,6 +10,7 @@ public class Script_PlayerAttackCollider : MonoBehaviour
         if(collision.tag == "Enemy")
         {
             collision.GetComponent<Script_Enemy>().ApplyDamage(Damage);
+            collision.GetComponent<Animator>().SetTrigger("Hurt");
         }
     }
 }

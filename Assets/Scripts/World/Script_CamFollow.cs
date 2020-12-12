@@ -15,10 +15,12 @@ public class Script_CamFollow : MonoBehaviour
         if (ShouldSmooth)
         {
             pos.x = Mathf.Lerp(pos.x, Target.transform.position.x, SmoothTime * Time.deltaTime);
+            pos.y = Mathf.Lerp(pos.y, Target.transform.position.y + 3, SmoothTime * Time.deltaTime);
         }
         else
         {
             pos.x = Target.transform.position.x;
+            pos.y = Target.transform.position.y + 3;
         }
         transform.position = pos;
     }

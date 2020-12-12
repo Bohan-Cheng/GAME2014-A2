@@ -83,5 +83,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Goblin Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4992087576604973088, guid: 9219cf0421513cf428ba04c5cb41866e, type: 3}
+      propertyPath: Health
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9219cf0421513cf428ba04c5cb41866e, type: 3}

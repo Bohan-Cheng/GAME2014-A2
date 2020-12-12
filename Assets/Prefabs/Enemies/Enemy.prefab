@@ -215,3 +215,8 @@ MonoBehaviour:
   Health: 3
   CleanTime: 10
   IsAlive: 1
+  MaxMoveSpeed: 3
+  patrolTime: 3
+  MoveRight: 0
+  Fov: 5
+  AttackFov: 3
